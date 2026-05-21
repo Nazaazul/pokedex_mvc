@@ -22,19 +22,27 @@
         <?php foreach ($pokemones as $p): ?>
             <tr>
                 <td style="text-align: center;">
-                    <?php if(!empty($p['imagen'])): ?>
-                        <img src="imagenes/<?php echo $p['imagen']; ?>" width="60" style="border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);" alt="Foto">
+                    <?php if(!empty($p['pokemon_imagen'])): ?>
+                        <img src="imagenes/<?php echo $p['pokemon_imagen']; ?>" width="60" style="border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);" alt="Foto">
                     <?php else: ?>
                         <span style="color: #999; font-size: 0.9em;">Sin foto</span>
                     <?php endif; ?>
                 </td>
-                
                 <td><?php echo $p['numero']; ?></td>
                 <td><strong><?php echo $p['nombre']; ?></strong></td>
-                <td><?php echo $p['tipo']; ?></td>
+                <td>
+                    <?php echo "<img src='imagenes/" .  $p['tipo1_imagen'] . "' style='width:25px;'>"; ?>
+                    <?php if(!empty($p['tipo2_imagen'])): ?>
+                    <img src="imagenes/<?php echo $p['tipo2_imagen']; ?>" style="width:25px;">
+                    <?php endif; ?>
+
+                </td>
+                
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
 <?php include 'footer.php'; ?>
+
+"<img src='img/" . $fila['tipo1_imagen'] . "' style='width:25px;'>";
