@@ -4,9 +4,9 @@
 
 if(isset($_GET['mensaje'])){
 
-    if($_GET['mensaje'] == "ok"){
+    if($_GET['mensaje'] == "ok" || $_GET['mensaje'] == "ok_borrar"){
 
-        echo "<p class='mensaje-exito'>Pokemon agregado correctamente</p>";
+        echo "<p class='mensaje-exito'>Se realizo el cambio con exito</p>";
 
     }elseif($_GET['mensaje'] == "error"){
 
@@ -24,11 +24,6 @@ switch ($seccion) {
         break;
 
     case 'nuevo':
-        //  RUTA PARA EL SOCIO 2 (ABM - Cargar Nuevo)
-        // Cuando el Socio 2 cree su PokemonController, solo debe borrar este echo y poner su lógica:
-        // require_once 'controller/PokemonController.php';
-        // $controller = new PokemonController();
-        // $controller->mostrarFormulario();
         require_once 'controller/CrearPokemonController.php';
         $controller = new CrearPokemonController();
         $controller->mostrarForm();
@@ -44,7 +39,19 @@ switch ($seccion) {
         // Cuando el Socio 3 cree su LoginController, pondrá su lógica acá:
         echo "<h1>Zona en construcción - Espacio del Socio 3 (Formulario Login)</h1>";
         break;
-
+    case 'borrar':
+        require_once 'controller/BorrarPokemonController.php';
+        $controller = new BorrarPokemonController();
+        $controller->mostrarConfirmacionDeBorrar($_GET['id']);
+    break;
+    case 'modificar':
+        echo "<h1>Modificar</h1>";
+    break;
+    case 'confirmar_borrar':
+        require_once 'controller/BorrarPokemonController.php';
+        $controller = new BorrarPokemonController();
+        $controller->borrarPokemon($_GET['id']);
+    break;
     default:
         echo "<h1>Error 404 - Ruta no encontrada</h1>";
         break;

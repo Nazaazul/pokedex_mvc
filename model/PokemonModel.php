@@ -81,5 +81,14 @@ class PokemonModel {
 
     return $query->execute();
 }
+    public function obtenerPorId($id){
+    $stmt = $this->conexion->prepare("SELECT * FROM pokemon WHERE id = ?");
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+    public function borrarPokemon($id){
+    $stmt = $this->conexion->prepare("DELETE FROM pokemon WHERE id = ?");
+    $stmt->execute([$id]);
+    }
 }
 ?>
