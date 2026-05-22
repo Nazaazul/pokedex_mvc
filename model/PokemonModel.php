@@ -55,5 +55,31 @@ class PokemonModel {
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function crearPokemon($nombre, $numero, $tipo1, $tipo2, $imagen){
+
+    $sql = "INSERT INTO pokemon
+            (nombre, numero, id_tipo1, id_tipo2, imagen)
+            VALUES
+            (:nombre, :numero, :tipo1, :tipo2, :imagen)";
+
+    $query = $this->conexion->prepare($sql);
+
+    $query->bindParam(":nombre", $nombre);
+    $query->bindParam(":numero", $numero);  
+    $query->bindParam(":tipo1", $tipo1);
+
+    // Manejar NULL que recibio del Controller
+    if($tipo2 === null){
+    $query->bindValue(":tipo2", null, PDO::PARAM_NULL);
+    }else{
+    $query->bindValue(":tipo2", $tipo2, PDO::PARAM_INT);
+    }
+
+    
+    $query->bindParam(":imagen", $imagen);
+
+    return $query->execute();
+}
 }
 ?>

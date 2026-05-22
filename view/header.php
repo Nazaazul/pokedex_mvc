@@ -53,6 +53,20 @@
         }
         button { background: #2196F3; color: white; font-weight: bold; }
         .btn-limpiar { background: #9e9e9e; color: white; text-decoration: none; font-weight: bold; margin-left: 5px; }
+    
+        .mensaje-exito{
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        }
+
+    .mensaje-error{
+        background-color: red;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        }
     </style>
 </head>
 <body>

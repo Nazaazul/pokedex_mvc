@@ -44,5 +44,3 @@
 </table>
 
 <?php include 'footer.php'; ?>
-
-"<img src='img/" . $fila['tipo1_imagen'] . "' style='width:25px;'>";

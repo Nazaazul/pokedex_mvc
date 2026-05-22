@@ -1,6 +1,19 @@
 <?php
 
 
+
+if(isset($_GET['mensaje'])){
+
+    if($_GET['mensaje'] == "ok"){
+
+        echo "<p class='mensaje-exito'>Pokemon agregado correctamente</p>";
+
+    }elseif($_GET['mensaje'] == "error"){
+
+        echo "<p class='mensaje-error'>Ocurrio un error</p>";
+    }
+}
+
 $seccion = isset($_GET['seccion']) ? $_GET['seccion'] : 'listar';
 
 switch ($seccion) {
@@ -16,7 +29,9 @@ switch ($seccion) {
         // require_once 'controller/PokemonController.php';
         // $controller = new PokemonController();
         // $controller->mostrarFormulario();
-        echo "<h1>Zona en construcción - Espacio del Socio 2 (Cargar Nuevo)</h1>";
+        require_once 'controller/CrearPokemonController.php';
+        $controller = new CrearPokemonController();
+        $controller->mostrarForm();
         break;
 
     case 'procesar_alta':
