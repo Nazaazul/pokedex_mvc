@@ -35,7 +35,10 @@
                     <?php if(!empty($p['tipo2_imagen'])): ?>
                     <img src="imagenes/<?php echo $p['tipo2_imagen']; ?>" style="width:25px;">
                     <?php endif; ?>
-
+                </td>
+                <td>
+                    <?php echo "<a href='index.php?seccion=modificar' class='link-underline link-underline-opacity-0 text-reset'>" ."<i class='bi bi-pencil'>" . "</i>" . "</a>" ?>
+                    <a class="link-underline link-underline-opacity-0 text-reset" href="index.php?seccion=borrar&id=<?php echo $p['id']; ?>"> <i class='bi bi-trash'> </i>  </a>
                 </td>
                 
             </tr>

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Pokédex Equipo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-       
      body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
@@ -44,7 +45,7 @@
 
         /* Estilos de la tabla */
         table { border-collapse: collapse; width: 100%; margin-top: 15px; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; vertical-align: middle; }
+        th, td { border: 1px solid #ddd; padding: 12px;  vertical-align: middle; }
         th { background-color: #f5f5f5; color: #333; }
         
         /* Estilo para los botones del buscador */
