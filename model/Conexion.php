@@ -8,7 +8,7 @@ class Conexion {
 
     public function getConexion() {
         $this->conexion = null;
-        $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8";
+         $dsn = "mysql:host=" . $this->host . ";port=3307;dbname=" . $this->db_name . ";charset=utf8";
         
         try {
             $this->conexion = new PDO($dsn, $this->username, $this->password);
