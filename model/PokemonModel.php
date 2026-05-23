@@ -81,14 +81,62 @@ class PokemonModel {
 
     return $query->execute();
 }
-    public function obtenerPorId($id){
-    $stmt = $this->conexion->prepare("SELECT * FROM pokemon WHERE id = ?");
+   public function obtenerPorId($id){
+    $stmt = $this->conexion->prepare("
+        SELECT 
+            pokemon.id,
+            pokemon.nombre,
+            pokemon.numero,
+            pokemon.descripcion,
+            pokemon.imagen AS pokemon_imagen,
+
+            tipo1.imagen AS tipo1_imagen,
+            tipo2.imagen AS tipo2_imagen,
+            tipo1.descripcion AS tipo1_nombre,
+            tipo2.descripcion AS tipo2_nombre
+
+        FROM pokemon
+
+        LEFT JOIN tipo AS tipo1 
+            ON pokemon.id_tipo1 = tipo1.id 
+
+        LEFT JOIN tipo AS tipo2 
+            ON pokemon.id_tipo2 = tipo2.id  
+
+        WHERE pokemon.id = ?
+    ");
+
     $stmt->execute([$id]);
+
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
     public function borrarPokemon($id){
     $stmt = $this->conexion->prepare("DELETE FROM pokemon WHERE id = ?");
     $stmt->execute([$id]);
     }
+
+    public function modificarPokemon($id, $nombre, $numero, $tipo1, $tipo2, $descripcion, $imagen){
+        $stmt = $this->conexion->prepare("
+        UPDATE pokemon
+        SET
+            nombre = ?,
+            numero = ?,
+            id_tipo1 = ?,
+            id_tipo2 = ?,
+            descripcion = ?,
+            imagen = ?
+        WHERE id = ?
+    ");
+
+    return $stmt->execute([
+        $nombre,
+        $numero,
+        $tipo1,
+        $tipo2,
+        $descripcion,
+        $imagen,
+        $id
+    ]);
+}
 }
 ?>
