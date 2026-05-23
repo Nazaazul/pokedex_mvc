@@ -7,7 +7,7 @@
 
 
 
-<img   style="border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);" src="imagenes/<?php echo $pokemon['imagen']; ?>" width="120">
+<img   style="border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);" src="imagenes/<?php echo $pokemon['pokemon_imagen']; ?>" width="120">
 <p>Numero: <?php echo $pokemon['numero']; ?></p>
 <p><?php echo $pokemon['descripcion']; ?></p>
 

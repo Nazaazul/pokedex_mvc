@@ -29,15 +29,14 @@ switch ($seccion) {
         $controller->mostrarForm();
         break;
 
-    case 'procesar_alta':
-        //  RUTA PARA EL SOCIO 2 (Procesar el formulario de guardado)
-        echo "<h1>Zona en construcción - Espacio del Socio 2 (Guardar en BD)</h1>";
+    case 'procesar_modificacion':
+        require_once 'controller/modificarPokemonController.php';
+        $controller = new modificarPokemonController();
+        //$controller->borrarPokemon($_GET['id']);
         break;
 
     case 'login':
-        //  RUTA PARA EL SOCIO 3 (Seguridad - Login)
-        // Cuando el Socio 3 cree su LoginController, pondrá su lógica acá:
-        echo "<h1>Zona en construcción - Espacio del Socio 3 (Formulario Login)</h1>";
+        
         break;
     case 'borrar':
         require_once 'controller/BorrarPokemonController.php';
@@ -45,7 +44,9 @@ switch ($seccion) {
         $controller->mostrarConfirmacionDeBorrar($_GET['id']);
     break;
     case 'modificar':
-        echo "<h1>Modificar</h1>";
+        require_once 'controller/modificarPokemonController.php';
+        $controller = new ModificarPokemonController();
+        $controller->mostrarFormDeModificarPokemon($_GET['id']);
     break;
     case 'confirmar_borrar':
         require_once 'controller/BorrarPokemonController.php';
