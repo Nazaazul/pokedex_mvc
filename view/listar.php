@@ -29,7 +29,7 @@
                     <?php endif; ?>
                 </td>
                 <td><?php echo $p['numero']; ?></td>
-                <td><strong><?php echo $p['nombre']; ?></strong></td>
+                <td><a class='link-underline link-underline-opacity-0 text-reset' href="index.php?seccion=detalle&id=<?php echo $p['id']; ?>"><strong><?php echo $p['nombre']; ?></strong></a></td>
                 <td>
                     <?php echo "<img src='imagenes/" .  $p['tipo1_imagen'] . "' style='width:25px;'>"; ?>
                     <?php if(!empty($p['tipo2_imagen'])): ?>

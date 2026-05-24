@@ -53,6 +53,11 @@ switch ($seccion) {
         $controller = new BorrarPokemonController();
         $controller->borrarPokemon($_GET['id']);
     break;
+    case 'detalle':
+        require_once 'controller/DetallePokemonController.php';
+        $controller = new DetallePokemonController();
+        $controller->mostrarDetallePokemon($_GET['id']);
+        break;
     default:
         echo "<h1>Error 404 - Ruta no encontrada</h1>";
         break;
