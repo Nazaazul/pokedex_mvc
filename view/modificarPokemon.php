@@ -4,7 +4,7 @@ require_once 'model/TipoModel.php';
 $tipoModel = new TipoModel();
 $tipos = $tipoModel->obtenerTipos();
 ?>
-
+<link rel="stylesheet" href="Css/modificarPokemon.css">
 <div class="container mt-5 d-flex justify-content-center">
 
     <div class="card shadow-lg border-0 rounded-4 p-4 pokemon-form-container">
@@ -27,7 +27,7 @@ $tipos = $tipoModel->obtenerTipos();
 
             <input type="hidden" name="id" value="<?php echo $pokemon['id']; ?>">
 
-            <!-- Nombre -->
+            
             <div class="mb-3">
                 <label class="form-label fw-semibold">
                     Nombre del Pokémon
@@ -41,7 +41,7 @@ $tipos = $tipoModel->obtenerTipos();
                 >
             </div>
 
-            <!-- Número -->
+            
             <div class="mb-3">
                 <label class="form-label fw-semibold">
                     Número en la Pokédex
@@ -55,7 +55,7 @@ $tipos = $tipoModel->obtenerTipos();
                 >
             </div>
 
-            <!-- Tipo 1 -->
+            
             <div class="mb-3">
                 <label class="form-label fw-semibold">
                     Tipo 1
@@ -76,7 +76,7 @@ $tipos = $tipoModel->obtenerTipos();
                 </select>
             </div>
 
-            <!-- Tipo 2 -->
+            
             <div class="mb-3">
                 <label class="form-label fw-semibold">
                     Tipo 2
@@ -97,7 +97,7 @@ $tipos = $tipoModel->obtenerTipos();
                 </select>
             </div>
 
-            <!-- Descripción -->
+            
             <div class="mb-3">
                 <label class="form-label fw-semibold">
                     Descripción
@@ -111,7 +111,7 @@ $tipos = $tipoModel->obtenerTipos();
                 ><?php echo $pokemon['descripcion']; ?></textarea>
             </div>
 
-            <!-- Imagen -->
+           
             <div class="mb-4">
                 <label class="form-label fw-semibold">
                     Nueva Imagen
@@ -124,7 +124,7 @@ $tipos = $tipoModel->obtenerTipos();
                 >
             </div>
 
-            <!-- Botones -->
+            
             <div class="d-flex justify-content-between">
 
                 <a 
@@ -148,41 +148,4 @@ $tipos = $tipoModel->obtenerTipos();
     </div>
 
 </div>
-
-<style>
-
-.pokemon-form-container{
-    width: 100%;
-    max-width: 600px;
-    background-color: #ffffff;
-}
-
-.pokemon-img{
-    border-radius: 12px;
-    padding: 10px;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
-}
-
-.pokemon-img:hover{
-    transform: scale(1.05);
-}
-
-.form-control,
-.form-select{
-    border-radius: 10px;
-    padding: 10px;
-}
-
-textarea.form-control{
-    resize: none;
-}
-
-.btn{
-    border-radius: 10px;
-}
-
-</style>
-
 <?php include 'footer.php'; ?>
