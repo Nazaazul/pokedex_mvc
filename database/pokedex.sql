@@ -288,9 +288,9 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcado de datos para la tabla `usuarios`
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(1, 'Administrador', 'admin@pokedex.com', '$2y$10$bX0KyKZzAdyKNX2Vl9dJu.4QJcuwLnnnWebimmHDUJ9t4VOJznwjm', 'admin', '2026-05-23 17:46:31', '2026-05-23 18:02:28'),
-(2, 'Usuario Prueba', 'usuario@pokedex.com', '$2y$10$Vn178Hw8HkNSI4kn3Z/98eI7ZsgPoe7HQ2k22nuEwAEXGEWgv1Xte', 'usuario', '2026-05-23 17:46:31', '2026-05-23 18:02:28');
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`) VALUES
+(1, 'Administrador', 'admin@mail.com', '$2y$10$bX0KyKZzAdyKNX2Vl9dJu.4QJcuwLnnnWebimmHDUJ9t4VOJznwjm', 'admin'),
+(2, 'Usuario Prueba', 'usuario@mail.com', '$2y$10$Vn178Hw8HkNSI4kn3Z/98eI7ZsgPoe7HQ2k22nuEwAEXGEWgv1Xte', 'usuario');
 
 -- Indices de la tabla `usuarios`
 ALTER TABLE `usuarios`
