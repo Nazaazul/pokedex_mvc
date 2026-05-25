@@ -1,7 +1,15 @@
 <?php
 
-
 require_once(__DIR__ . "/../model/PokemonModel.php");
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['usuario_rol']) || $_SESSION['usuario_rol'] !== 'admin') {
+    header("Location: ../index.php?seccion=listar&mensaje=error_no_admin");
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

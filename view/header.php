@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -74,6 +79,16 @@
     <div class="container">
         <nav>
             <a href="index.php?seccion=listar">🏠 Inicio</a>
-            <a href="index.php?seccion=nuevo">➕ Cargar Nuevo</a>
-            <a href="index.php?seccion=login" style="float:right;">🔑 Login</a>
+            <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+                <a href="index.php?seccion=nuevo">➕ Cargar Nuevo</a>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['usuario_nombre'])): ?>
+                <span style="color: white; float: right; margin-left: 15px;">
+                    Bienvenido <?php echo htmlspecialchars($_SESSION['usuario_nombre']); ?> (<?php echo htmlspecialchars($_SESSION['usuario_rol']); ?>)
+                </span>
+                <a href="index.php?seccion=logout" style="float:right;">🚪 Cerrar sesión</a>
+            <?php else: ?>
+                <a href="index.php?seccion=login" style="float:right;">🔑 Login</a>
+            <?php endif; ?>
         </nav>

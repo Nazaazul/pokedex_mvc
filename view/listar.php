@@ -2,6 +2,12 @@
 
 <h1 style="color: #333; border-bottom: 2px solid #d32f2f; padding-bottom: 10px;">Mis Pokémon</h1>
 
+<?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+    <div style="margin-bottom: 20px;">
+        <a href="index.php?seccion=nuevo" class="btn btn-success">Crear Pokémon</a>
+    </div>
+<?php endif; ?>
+
 <form action="index.php" method="GET" style="margin-bottom: 20px; display: flex; gap: 10px; align-items: center;">
     <input type="hidden" name="seccion" value="listar">
     <input type="text" name="busqueda" placeholder="Buscar por nombre o tipo..." required style="padding: 8px; width: 250px; border: 1px solid #ccc; border-radius: 4px;">
@@ -16,6 +22,9 @@
             <th>Número</th>
             <th>Nombre</th>
             <th>Tipo</th>
+            <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+                <th>Acciones</th>
+            <?php endif; ?>
         </tr>
     </thead>
     <tbody>
@@ -36,11 +45,12 @@
                     <img src="imagenes/<?php echo $p['tipo2_imagen']; ?>" style="width:25px;">
                     <?php endif; ?>
                 </td>
-                <td>
-                    <a class='link-underline link-underline-opacity-0 text-reset' href="index.php?seccion=modificar&id=<?php echo $p['id']; ?>"> <i class='bi bi-pencil'> </i> </a>
-                    <a class="link-underline link-underline-opacity-0 text-reset" href="index.php?seccion=borrar&id=<?php echo $p['id']; ?>"> <i class='bi bi-trash'> </i>  </a>
-                </td>
-                
+                <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+                    <td>
+                        <a class='link-underline link-underline-opacity-0 text-reset' href="index.php?seccion=modificar&id=<?php echo $p['id']; ?>"> <i class='bi bi-pencil'> </i> </a>
+                        <a class="link-underline link-underline-opacity-0 text-reset" href="index.php?seccion=borrar&id=<?php echo $p['id']; ?>"> <i class='bi bi-trash'> </i>  </a>
+                    </td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </tbody>

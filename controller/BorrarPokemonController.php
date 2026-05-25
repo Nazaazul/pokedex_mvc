@@ -1,4 +1,13 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['usuario_rol']) || $_SESSION['usuario_rol'] !== 'admin') {
+    header("Location: index.php?seccion=listar&mensaje=error_no_admin");
+    exit();
+}
+
 require_once 'model/PokemonModel.php';
 
 class BorrarPokemonController {
