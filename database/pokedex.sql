@@ -276,6 +276,32 @@ ALTER TABLE `pokemon`
   ADD CONSTRAINT `pokemon_ibfk_2` FOREIGN KEY (`id_tipo2`) REFERENCES `tipo` (`id`);
 COMMIT;
 
+-- Estructura de tabla para la tabla `usuarios`
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `rol` enum('admin','usuario') DEFAULT 'usuario',
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Volcado de datos para la tabla `usuarios`
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `fecha_creacion`, `fecha_actualizacion`) VALUES
+(1, 'Administrador', 'admin@pokedex.com', '$2y$10$bX0KyKZzAdyKNX2Vl9dJu.4QJcuwLnnnWebimmHDUJ9t4VOJznwjm', 'admin', '2026-05-23 17:46:31', '2026-05-23 18:02:28'),
+(2, 'Usuario Prueba', 'usuario@pokedex.com', '$2y$10$Vn178Hw8HkNSI4kn3Z/98eI7ZsgPoe7HQ2k22nuEwAEXGEWgv1Xte', 'usuario', '2026-05-23 17:46:31', '2026-05-23 18:02:28');
+
+-- Indices de la tabla `usuarios`
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+-- AUTO_INCREMENT de la tabla `usuarios`
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

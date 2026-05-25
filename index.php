@@ -36,8 +36,9 @@ switch ($seccion) {
         break;
 
     case 'login':
-        
+        echo "<h1>Login en desarrollo...</h1>";
         break;
+
     case 'borrar':
         require_once 'controller/BorrarPokemonController.php';
         $controller = new BorrarPokemonController();
